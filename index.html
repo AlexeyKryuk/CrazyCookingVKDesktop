@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html>
 
@@ -41,4 +42,49 @@
   </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+  <title>Crazy Cooking</title>
+</head>
+
+<body style="margin: 0px; overflow: hidden;" oncontextmenu="return false;">
+  <canvas id="unity-canvas"
+    style="width: 100vw; height: 100vh; background: #231F20">
+  </canvas>
+
+  <div id="progress-bar"
+    style="position: absolute; left: 0%; right: 100%; top: 49%; bottom: 49%; background-color: white;"></div>
+
+  <script src="Build/CrazyCookingVKDesktop.loader.js"></script>
+  <script>
+    const settings = {
+      dataUrl: "Build/89df27ed35dbaa544babe19a42e2f439.data.unityweb",
+      frameworkUrl: "Build/b178dd147aef028256248d3e3c1612ad.js.unityweb",
+      codeUrl: "Build/3a7ef0229bd60d171da7c7e083af8df2.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "IJunior",
+      productName: "Crazy Cooking",
+      productVersion: "0.21",
+      devicePixelRatio: 2,
+      matchWebGLToCanvasSize: true,
+    };
+
+    const progressBar = document.querySelector("#progress-bar");
+
+    createUnityInstance(document.querySelector("#unity-canvas"), settings, (progress) => {
+      progressBar.style.right = 100 * (1 - progress) + "%";
+    }).then(() => {
+      progressBar.style.display = "none";
+    }).catch((message) => {
+      alert(message);
+    });
+  </script>
+</body>
+
+>>>>>>> Stashed changes
 </html>
